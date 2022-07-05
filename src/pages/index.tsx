@@ -1,8 +1,12 @@
+import { Center } from "@chakra-ui/react";
+import { ModalShowPage } from "../components/Modal/ModalShowPage";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
+    <Center w='100vw' h='100vh' gap={5} >
+      <ModalShowPage />
+      <ModalShowPage />
+      <ModalShowPage />
+    </Center>
   )
 }
-
