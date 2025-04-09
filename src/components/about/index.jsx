@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ItemLayout from "./ItemLayout";
 
 const AboutDetails = () => {
@@ -11,35 +10,28 @@ const AboutDetails = () => {
           }
         >
           <h2 className="  text-xl md:text-2xl text-left w-full capitalize">
-            Resume de minha jornada
+            Resumem de minha jornada
           </h2>
-          <p className="font-light  text-xs sm:text-sm md:text-base   ">
-            My journey in web development is powered by an array of mystical
-            tools and languages, with JavaScript casting the core of my
-            enchantments. I wield frameworks like React.js and Next.js with
-            precision, crafting seamless portals (websites) that connect realms
-            (users) across the digital universe. The ancient arts of the
-            Jamstack empower me to create fast, secure, and dynamic experiences,
-            while my design skills ensure every creation is not only functional
-            but visually captivating. Join me as I continue to explore new
-            spells and technologies to shape the future of the web.
-          </p>
-        </ItemLayout>
 
-        <ItemLayout
-          className={" col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
-        >
-          <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            25+ <sub className="font-semibold text-base">clients</sub>
-          </p>
+          <div className="grid gap-2">
+            <p className="font-light  text-xs sm:text-sm md:text-base   ">
+              Sou desenvolvedor com experiência em front-end, mobile, análise de sistemas e requisitos. Tenho perfil colaborativo, foco em qualidade e prazos, facilidade para me adaptar a novas tecnologias e enfrentar desafios.
+            </p>
+            <p>
+              Atuei como responsável pelo front-end em projetos de grande escala, desde a escolha de tecnologias até a entrega final. Dentre os destaques, participei do desenvolvimento de um sistema para monitoramento de ativos e gestão de peças na indústria automotiva, com mapa indoor interativo e dashboards analíticos, e também de um sistema nacional de rastreamento de veículos, com alertas inteligentes e geofences personalizadas usando a API do Google Maps.
+            </p>
+            <p>
+              Atualmente, trabalho como analista de requisitos (part-time), contribuindo com a definição funcional e documentação técnica de um novo módulo de mapas, colaborando com equipes de produto e desenvolvimento para garantir soluções eficazes e alinhadas ao negócio.
+            </p>
+          </div>
         </ItemLayout>
 
         <ItemLayout
           className={"col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
           <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            4+{" "}
-            <sub className="font-semibold text-base">years of experience</sub>
+            3+{" "}
+            <sub className="font-semibold text-base">anos de experiência</sub>
           </p>
         </ItemLayout>
 
@@ -48,52 +40,28 @@ const AboutDetails = () => {
         >
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/top-langs?username=codebucks27&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
-            alt="CodeBucks"
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/top-langs?username=leandrogcruzp&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
+            alt="Leandro G Cruz P - Top Langs"
             loading="lazy"
           />
         </ItemLayout>
 
-        <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
+        {/* <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api?username=codebucks27&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api?username=leandrogcruzp&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
             alt="CodeBucks"
             loading="lazy"
           />
-        </ItemLayout>
+        </ItemLayout> */}
 
         <ItemLayout className={"col-span-full"}>
           <img
             className="w-full h-auto"
-            src={`https://skillicons.dev/icons?i=appwrite,aws,babel,bootstrap,cloudflare,css,d3,docker,figma,firebase,gatsby,git,github,graphql,html,ipfs,js,jquery,kubernetes,linux,mongodb,mysql,netlify,nextjs,nodejs,npm,postgres,react,redux,replit,sass,supabase,tailwind,threejs,vercel,vite,vscode,yarn`}
-            alt="CodeBucks"
+            src={`https://skillicons.dev/icons?i=html,js,ts,css,tailwind,bootstrap,sass,styledcomponents,npm,yarn,pnpm,vite,react,nextjs,babel,vue,nuxt,vuetify,pinia,nodejs,express,redux,threejs,jest,electron,docker,aws,mongodb,mysql,postgres,sqlite,prisma,firebase,gatsby,netlify,vercel,git,github,githubactions,gitlab,figma,notion,linux,ubuntu,windows,apple,vscode,neovim,vim,eclipse,discord`}
+            alt="Leandro G Cruz P - Skills"
             loading="lazy"
           />
-        </ItemLayout>
-
-        <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
-          <img
-            className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=codebucks27&theme=dark&hide_border=true&type=svg&background=EB545400&ring=FEFE5B&currStreakLabel=FEFE5B`}
-            alt="CodeBucks"
-            loading="lazy"
-          />
-        </ItemLayout>
-
-        <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
-          <Link
-            href="https://github.com/codebucks27/Nextjs-contentlayer-blog"
-            target="_blank"
-            className="w-full"
-          >
-            <img
-              className="w-full h-auto"
-              src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/pin/?username=codebucks27&repo=Nextjs-contentlayer-blog&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=2`}
-              alt="CodeBucks"
-              loading="lazy"
-            />
-          </Link>
         </ItemLayout>
       </div>
     </section>
