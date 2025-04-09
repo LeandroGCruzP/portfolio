@@ -9,8 +9,8 @@ const AboutDetails = () => {
             " col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="  text-xl md:text-2xl text-left w-full capitalize">
-            Resumem de minha jornada
+          <h2 className="  text-xl md:text-2xl text-left w-full">
+            Resumo de minha jornada
           </h2>
 
           <div className="grid gap-2">
