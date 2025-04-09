@@ -1,9 +1,7 @@
 "use client";
-import React from "react";
-import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
-import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { Toaster, toast } from "sonner";
 
 const container = {
   hidden: { opacity: 0 },
@@ -32,7 +30,7 @@ export default function Form() {
     const toastId = toast.loading("Sending your message, please wait...");
 
     toast.info(
-      "Form submissions are demo-only here. Please checkout the final code repo to enable it. If you want to connect you can reach out to me via codebucks27@gmail.com.",
+      "Devo implementar ainda o envio de email e mudar o toast",
       {
         id: toastId,
       }
@@ -97,7 +95,7 @@ export default function Form() {
         <motion.input
           variants={item}
           type="text"
-          placeholder="name"
+          placeholder="Nome"
           {...register("name", {
             required: "This field is required!",
             minLength: {
@@ -115,7 +113,7 @@ export default function Form() {
         <motion.input
           variants={item}
           type="email"
-          placeholder="email"
+          placeholder="E-mail"
           {...register("email", { required: "This field is required!" })}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
         />
@@ -126,7 +124,7 @@ export default function Form() {
         )}
         <motion.textarea
           variants={item}
-          placeholder="message"
+          placeholder="Mensagem"
           {...register("message", {
             required: "This field is required!",
             maxLength: {
@@ -148,7 +146,7 @@ export default function Form() {
 
         <motion.input
           variants={item}
-          value="Cast your message!"
+          value="Envie sua mensagem!"
           className="px-10 py-4 rounded-md shadow-lg bg-background border border-accent/30 border-solid
       hover:shadow-glass-sm backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer capitalize
       "

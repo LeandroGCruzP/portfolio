@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import { motion } from "framer-motion";
 import {
   Github,
   Home,
@@ -9,10 +11,7 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 import ResponsiveComponent from "../ResponsiveComponent";
-import clsx from "clsx";
-import { motion } from "framer-motion";
 
 const getIcon = (icon) => {
   switch (icon) {
