@@ -15,7 +15,7 @@ export const BtnList = [
       newTab: true,
     },
     {
-      label: "Resume",
+      label: "Curriculum",
       link: "/resume.pdf",
       icon: "resume",
       newTab: true,
