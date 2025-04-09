@@ -1,6 +1,5 @@
-import React from "react";
-import ItemLayout from "./ItemLayout";
 import Link from "next/link";
+import ItemLayout from "./ItemLayout";
 
 const AboutDetails = () => {
   return (
@@ -12,7 +11,7 @@ const AboutDetails = () => {
           }
         >
           <h2 className="  text-xl md:text-2xl text-left w-full capitalize">
-            Architect of Enchantment
+            Resume de minha jornada
           </h2>
           <p className="font-light  text-xs sm:text-sm md:text-base   ">
             My journey in web development is powered by an array of mystical
