@@ -1,10 +1,14 @@
 "use client";
-import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-const Modal = ({ onClose, toggle }) => {
+interface ModalProps {
+  onClose: () => void;
+  toggle: () => void;
+}
+
+const Modal = ({ onClose, toggle }: ModalProps) => {
   return createPortal(
     <div className="fixed inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center">
       <div
@@ -35,13 +39,13 @@ const Modal = ({ onClose, toggle }) => {
 };
 
 const Sound = () => {
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleFirstUserInteraction = () => {
+  const handleFirstUserInteraction = useCallback(() => {
     const musicConsent = localStorage.getItem("musicConsent");
-    if (musicConsent === "true" && !isPlaying) {
+    if (musicConsent === "true" && !isPlaying && audioRef.current) {
       audioRef.current.play();
       setIsPlaying(true);
     }
@@ -49,7 +53,7 @@ const Sound = () => {
     ["click", "keydown", "touchstart"].forEach((event) =>
       document.removeEventListener(event, handleFirstUserInteraction)
     );
-  };
+  }, [isPlaying]);
 
   useEffect(() => {
     const consent = localStorage.getItem("musicConsent");
@@ -58,7 +62,7 @@ const Sound = () => {
     if (
       consent &&
       consentTime &&
-      new Date(consentTime).getTime() + 3 * 24 * 60 * 60 * 1000 > new Date()
+      new Date(consentTime).getTime() + 3 * 24 * 60 * 60 * 1000 > new Date().getTime()
     ) {
       setIsPlaying(consent === "true");
 
@@ -70,12 +74,14 @@ const Sound = () => {
     } else {
       setShowModal(true);
     }
-  }, []);
+  }, [handleFirstUserInteraction]);
 
   const toggle = () => {
     const newState = !isPlaying;
     setIsPlaying(!isPlaying);
-    newState ? audioRef.current.play() : audioRef.current.pause();
+    if (audioRef.current) {
+      newState ? audioRef.current.play() : audioRef.current.pause();
+    }
     localStorage.setItem("musicConsent", String(newState));
     localStorage.setItem("consentTime", new Date().toISOString());
     setShowModal(false);
@@ -90,27 +96,31 @@ const Sound = () => {
         <source src={"/audio/birds39-forest-20772.mp3"} type="audio/mpeg" />
         your browser does not support the audio element.
       </audio>
-      <motion.button
-        onClick={toggle}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1 }}
+      <div
+        style={{
+          transform: `scale(${showModal ? 0 : 1})`,
+          transition: 'transform 0.3s ease',
+        }}
         className="w-10 h-10 xs:w-14 xs:h-14 text-foreground rounded-full flex items-center justify-center cursor-pointer z-50 p-2.5 xs:p-4 custom-bg"
-        aria-label={"Sound control button"}
-        name={"Sound control button"}
       >
-        {isPlaying ? (
-          <Volume2
-            className="w-full h-full text-foreground group-hover:text-accent"
-            strokeWidth={1.5}
-          />
-        ) : (
-          <VolumeX
-            className="w-full h-full text-foreground group-hover:text-accent"
-            strokeWidth={1.5}
-          />
-        )}
-      </motion.button>
+        <button
+          onClick={toggle}
+          aria-label="Sound control button"
+          className="w-full h-full flex items-center justify-center bg-transparent border-none"
+        >
+          {isPlaying ? (
+            <Volume2
+              className="w-full h-full text-foreground group-hover:text-accent"
+              strokeWidth={1.5}
+            />
+          ) : (
+            <VolumeX
+              className="w-full h-full text-foreground group-hover:text-accent"
+              strokeWidth={1.5}
+            />
+          )}
+        </button>
+      </div>
     </div>
   );
 };

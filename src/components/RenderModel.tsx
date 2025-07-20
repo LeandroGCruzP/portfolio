@@ -2,9 +2,14 @@
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import clsx from "clsx";
-import React, { Suspense } from "react";
+import { ReactNode, Suspense } from "react";
 
-const RenderModel = ({ children, className }) => {
+interface RenderModelProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const RenderModel = ({ children, className }: RenderModelProps) => {
   return (
     <Canvas
       className={clsx("w-screen h-screen -z-10 relative", className)}

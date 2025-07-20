@@ -1,4 +1,11 @@
-export const BtnList = [
+export interface NavButton {
+  label: string;
+  link: string;
+  icon: string;
+  newTab: boolean;
+}
+
+export const BtnList: NavButton[] = [
     { label: "Sobre mim", link: "/about", icon: "about", newTab: false },
     // { label: "Projects", link: "/projects", icon: "projects", newTab: false },
     // { label: "Contact", link: "/contact", icon: "contact", newTab: false },

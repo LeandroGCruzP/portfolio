@@ -1,7 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const createFirefly = () => ({
+interface Firefly {
+  id: number;
+  top: string;
+  left: string;
+  animationDuration: string;
+}
+
+const createFirefly = (): Firefly => ({
   id: Math.random(),
   top: `${Math.random() * 100}%`,
   left: `${Math.random() * 100}%`,
@@ -9,11 +16,12 @@ const createFirefly = () => ({
 });
 
 const FireFliesBackground = () => {
-  const [fireflies, setFireflies] = useState([]);
+  const [fireflies, setFireflies] = useState<Firefly[]>([]);
 
   useEffect(() => {
     const addFireflyPeriodically = () => {
       const newFirefly = createFirefly();
+
       setFireflies((currentFireflies) => [
         ...currentFireflies.slice(-14),
         newFirefly,
@@ -31,7 +39,7 @@ const FireFliesBackground = () => {
         return (
           <div
             key={firefly.id}
-            className="absolute roudned-full w-[10px] h-[10px] bg-firefly-radial"
+            className="absolute rounded-full w-[10px] h-[10px] bg-firefly-radial"
             style={{
               top: firefly.top,
               left: firefly.left,

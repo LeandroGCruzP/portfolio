@@ -1,6 +1,6 @@
 "use client";
-import { BtnList } from "@/const/navigation-const";
 import { motion } from "framer-motion";
+import { BtnList } from "../../const/navigation-const";
 import useScreenSize from "../hooks/useScreenSize";
 import ResponsiveComponent from "../ResponsiveComponent";
 import NavButton from "./NavButton";
